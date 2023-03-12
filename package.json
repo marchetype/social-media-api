@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/marchetype/social-media-api/issues"
   },
-  "homepage": "https://github.com/marchetype/social-media-api#readme"
+  "homepage": "https://github.com/marchetype/social-media-api#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongoose": "^7.0.1"
+  }
 }
