@@ -59,3 +59,7 @@ thoughtSchema.virtual('formattedCreatedAt')
 .get(function() {
     return this.createdAt.toLocaleDateString();
 })
+
+const Thought = model('Thought', thoughtSchema);
+
+module.exports = Thought;
