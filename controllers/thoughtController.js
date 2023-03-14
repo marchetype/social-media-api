@@ -59,7 +59,7 @@ module.exports = {
                 {new: true}
             )
         })
-        .then(() => res.json({message: 'User has been deleted'}))
+        .then(() => res.json({message: 'Thought has been deleted'}))
         .catch((err) => res.status(500).json(err));
     },
     addReaction(req,res) {
@@ -72,7 +72,7 @@ module.exports = {
         !thought 
         ? res
             .status(404)
-            .json({message: 'Friend not found; invalid ID'})
+            .json({message: 'Thought not found; invalid ID'})
         : res.json(thought)
         )
         .catch((err) => res.status(500).json(err));
