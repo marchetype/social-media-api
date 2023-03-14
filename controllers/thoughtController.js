@@ -47,8 +47,23 @@ module.exports = {
             })
             .catch((err) => res.status(500).json(err));
     },
+    removeThoughtById(req,res) {
+        Thought.findOneAndDelete({_id: req.params.id})
+        .then((thought) => {
+            if(!thought) {
+                res.status(404).json({message: 'Thought not found; Invalid ID'})
+            }
+            return User.findOneAndUpdate(
+                {_id: req.body.userID},
+                {$pull: {thoughts: thought._id}},
+                {new: true}
+            )
+        })
+        .then(() => res.json({message: 'User has been deleted'}))
+        .catch((err) => res.status(500).json(err));
+    },
     addReaction(req,res) {
-
+        
     },
     removeReactionById(req,res) {
 
