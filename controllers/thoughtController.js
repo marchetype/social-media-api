@@ -35,7 +35,17 @@ module.exports = {
         });
     },
     updateThoughtById(req,res) {
-        
+        Thought.findOneAndUpdate(
+            {_id: req.params.id},
+            {$set: req.body},
+            {
+                runValidators: true,
+                new: true
+            })
+            .then((thought) => {
+                !thought ? res.status(404).json({message: 'No thought found; ID invalid'}) : res.json(thought);
+            })
+            .catch((err) => res.status(500).json(err));
     },
     addReaction(req,res) {
 
